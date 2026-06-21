@@ -4,15 +4,17 @@
 using namespace std;
 
 class Student {
-public:
+private:
 	string name;
 	int age;
 	//double mark;
-	char gender;	
+	char gender;
 	bool alive;
 	int* marks;
 	int count;
 
+public:
+	
 	// default-constructor
 	Student() {
 		cout << "Student default constructor\n";
@@ -80,6 +82,15 @@ public:
 			count = 0;
 		}
 	}
+
+	string getName() {
+		return name;
+	}
+
+	void setName(string nm) {
+		name = nm;
+	}
+
 
 	string toString() {
 		string s = "";
