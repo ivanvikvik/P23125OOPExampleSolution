@@ -11,24 +11,24 @@ double Menager::calculateAvgMark(Student* student) {
 	return s / student->getCountMark();
 }
 
-double Menager::calculateAvgMark(Student** list, int count) {
+double Menager::calculateAvgMark(Group* group) {
 	double sum = 0;
 
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < group->getCount(); i++)
 	{
-		sum += calculateAvgMark(list[i]);
+		sum += calculateAvgMark(group->getStudent(i));
 	}
 
-	return sum / count;
+	return sum / group->getCount();
 }
 
-Student* Menager::getBestStudent(Student** list, int count) {
+Student* Menager::getBestStudent(Group* group) {
 	int index = 0;
-	double avg = calculateAvgMark(list[0]);
+	double avg = calculateAvgMark(group->getStudent(0));
 
-	for (int i = 1; i < count; i++)
+	for (int i = 1; i < group->getCount(); i++)
 	{
-		double current_avg = calculateAvgMark(list[i]);
+		double current_avg = calculateAvgMark(group->getStudent(i));
 
 		if (avg < current_avg) {
 			index = i;
@@ -36,5 +36,5 @@ Student* Menager::getBestStudent(Student** list, int count) {
 		}
 	}
 
-	return list[index];
+	return group->getStudent(index);
 }

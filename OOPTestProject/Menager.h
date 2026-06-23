@@ -1,10 +1,10 @@
-#include "Student.h"
+#include "Group.h"
 
 class Menager {
 private:
 	double calculateAvgMark(Student* student);
 
 public:
-	double calculateAvgMark(Student** list, int count);
-	Student* getBestStudent(Student** list, int count);
+	double calculateAvgMark(Group* group);
+	Student* getBestStudent(Group* group);
 };
