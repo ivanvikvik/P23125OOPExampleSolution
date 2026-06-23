@@ -12,147 +12,34 @@ private:
 	bool alive;
 	int* marks;
 	int count;
-
-	// default-constructor
-	Student() {
-		cout << "Student default constructor\n";
-		name = "";
-		age = 0;
-		alive = false;
-		//mark = 0;
-		marks = NULL;
-		count = 0;
-		gender = '\0';
-	}
-
+	
 public:
+	// default-constructor
+	Student();
 	
-	
-
-	Student(string nm, int ag) {
-		cout << "Student constructor with arguments\n";
-		name = nm;
-		age = ag;
-		alive = false;
-		//mark = 0;
-		marks = NULL;
-		count = 0;
-		gender = '\0';
-	}
-
-	Student(int ag, string nm) {
-		cout << "Student constructor with arguments\n";
-		name = nm;
-		age = ag;
-		alive = false;
-		//mark = 0;
-		marks = NULL;
-		count = 0;
-
-		gender = '\0';
-	}
+	Student(string nm, int ag);
+	Student(int ag, string nm);
 
 	// canonical constructor
-	Student(string nm, int ag, char gndr, bool a, int* mrks, int cnt) {
-		cout << "Student canonical constructor\n";
-		name = nm;
-		age = ag;
-		alive = a;
-		//mark = mrk;
-		marks = mrks;
-		count = cnt;
-		gender = gndr;
-	}
-
+	Student(string nm, int ag, char gndr, bool a, int* mrks, int cnt);
+	
 	// copy-constructor
-	Student(const Student* student) {
-		cout << "Student copy-constructor\n";
-		name = student->name;
-		age = student->age;
-		alive = student->alive;
-		//mark = student->mark;
-		marks = student->marks;
-		count = student->count;
-		gender = student->gender;
-	}
-
+	Student(const Student* student);
+	
 	// destructor
-	~Student() {
-		cout << "Student destructor\n";
-		if (marks != nullptr) {
-			delete[] marks;
-			count = 0;
-		}
-	}
+	~Student();
 
-	string getName() {
-		return name;
-	}
+	string getName();
+	void setName(string nm);
+	int getAge();
+	void setAge(int a);
+	char getGender();
+	void setGender(char g);
+	bool isAlive();
+	void setAlive(bool a);
+	int getCountMark();
+	int* getMarks();
+	void setMarks(int* m, int c);
 
-	void setName(string nm) {
-		name = nm;
-	}
-
-	int getAge() {
-		return age;
-	}
-
-	void setAge(int a) {
-		if (a > 0) {
-			age = a;
-		}
-	}
-
-	char getGender() {
-		return gender;
-	}
-
-	void setGender(char g) {
-		if (g == 'm' || g == 'f') {
-			gender = g;
-		}
-	}
-
-	bool isAlive() {
-		return alive;
-	}
-
-	void setAlive(bool a) {
-		alive = a;
-	}
-
-	int getCountMark() {
-		return count;
-	}
-
-	int* getMarks() {
-		return marks;
-	}
-
-	void setMarks(int* m, int c) {
-		if (c > 0 && m != nullptr) {
-			if (marks != nullptr) {
-				delete[] marks;
-			}
-			marks = m;
-			count = c;
-		}
-	}
-
-	string toString() {
-		string s = "";
-
-		string mrks = "";
-
-		for (int i = 0; i < count; i++)
-		{
-			mrks += to_string(*(marks + i)) + " ";
-		}
-
-		s += "Student: " + name + ", age = " + to_string(age)
-			+ ", gender = " + gender + ", mark = " + mrks
-			+ ", alive = " + (alive ? "yes" : "no");
-
-		return s;
-	}
+	string toString();
 };
