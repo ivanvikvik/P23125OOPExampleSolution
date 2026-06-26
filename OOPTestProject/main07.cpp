@@ -12,7 +12,7 @@
 //
 //	for (int i = 0; i < 5; i++)
 //	{
-//		*(st01->marks + i) = 10;
+//		*(st01->getMarks() + i) = 10;
 //		//st01->marks[i] = 10;
 //	}
 //	

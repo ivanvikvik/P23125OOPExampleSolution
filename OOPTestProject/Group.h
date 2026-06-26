@@ -11,7 +11,7 @@ private:
 public:
 	Group();
 	Group(string nm, Student** ls, int c);
-	//Group(const Group* group);
+	Group(const Group* group);
 	~Group();
 
 	string getName();
