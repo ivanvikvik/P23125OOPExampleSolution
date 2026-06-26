@@ -18,6 +18,7 @@ public:
 	void setName(string nm);
 	int getCount();
 	Student* getStudent(int index);
+
 	void addStudent(Student* student);
 	void removeStudent(int index);
 

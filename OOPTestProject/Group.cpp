@@ -48,8 +48,45 @@ Student* Group::getStudent(int index) {
 	return nullptr;
 }
 
-void Group::addStudent(Student* student) {}
-void Group::removeStudent(int index) {}
+void Group::addStudent(Student* student) {
+	if (count == 0 && list == nullptr) {
+		list = new Student*[1];
+		count = 1;
+		list[0] = student;
+	}
+	else {
+		Student** temp = new Student*[count + 1];
+
+		for (int i = 0; i < count; i++)
+		{
+			temp[i] = list[i];
+		}
+
+		temp[count] = student;
+
+		delete[] list;
+		list = temp;
+		count++;
+	}
+}
+
+void Group::removeStudent(int index) {
+	if (list != nullptr && count > 0 && index >= 0 && index < count) {
+		Student** temp = new Student*[count - 1];
+
+		for (int i = 0, j = 0; i < count; i++)
+		{
+			if (i != index) {
+				temp[j] = list[i];
+				j++;
+			}
+		}
+
+		delete[] list;
+		list = temp;
+		count--;
+	}
+}
 
 string Group::toString() {
 	string s = "Group - " + name + ":";

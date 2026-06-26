@@ -138,6 +138,7 @@
     <ClCompile Include="main07.cpp" />
     <ClCompile Include="main08.cpp" />
     <ClCompile Include="main09.cpp" />
+    <ClCompile Include="main10.cpp" />
     <ClCompile Include="Menager.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
