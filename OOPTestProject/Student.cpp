@@ -1,62 +1,40 @@
 #pragma once
 #include "Student.h"
 
-
 // default-constructor
-Student::Student() {
-	cout << "Student default constructor\n";
-	name = "";
-	age = 0;
-	alive = false;
-	//mark = 0;
-	marks = NULL;
-	count = 0;
-	gender = '\0';
+Student::Student() : Student("", 0, 'm', false, NULL, 0) {
+	cout << "Student default constructor\n";	
 }
 
-Student::Student(string nm, int ag) {
-	cout << "Student constructor with arguments\n";
-	name = nm;
-	age = ag;
-	alive = false;
-	//mark = 0;
-	marks = NULL;
-	count = 0;
-	gender = '\0';
+Student::Student(string name, int age) : Student() {
+	cout << "Student constructor 1 with arguments\n";
+	this->name = name;
+	this->age = age;	
 }
 
-Student::Student(int ag, string nm) {
-	cout << "Student constructor with arguments\n";
-	name = nm;
-	age = ag;
-	alive = false;
-	//mark = 0;
-	marks = NULL;
-	count = 0;
-
-	gender = '\0';
+Student::Student(int age, string name) : Student(name, age) {
+	cout << "Student constructor 2 with arguments\n";		
 }
 
 // canonical constructor
-Student::Student(string nm, int ag, char gndr, bool a, int* mrks, int cnt) {
+Student::Student(string name, int age, char gender, bool alive,
+	int* marks, int count) {
 	cout << "Student canonical constructor\n";
-	name = nm;
-	age = ag;
-	alive = a;
+	this->name = name;
+	this->age = age;
+	this->alive = alive;
 	//mark = mrk;
-	marks = mrks;
-	count = cnt;
-	gender = gndr;
+	this->marks = marks;
+	this->count = count;
+	this->gender = gender;
 }
 
 // copy-constructor
-Student::Student(const Student* student) {
-	cout << "Student copy-constructor\n";
-	name = student->name;
-	age = student->age;
-	alive = student->alive;
+Student::Student(const Student* student) : Student(student->name, 
+	student->age, student->gender, student-> alive, student->marks,
+	student->count) {
 	
-	//mark = student->mark;
+	cout << "Student copy-constructor\n";
 	
 	if (student->count > 0 && student->marks != nullptr) {
 		marks = new int[student->count];
@@ -66,9 +44,6 @@ Student::Student(const Student* student) {
 			marks[i] = student->marks[i];
 		}
 	}
-
-	count = student->count;
-	gender = student->gender;
 }
 
 // destructor
@@ -81,20 +56,20 @@ Student::~Student() {
 }
 
 string Student::getName() {
-	return name;
+	return this->name;
 }
 
-void Student::setName(string nm) {
-	name = nm;
+void Student::setName(string name) {
+	this->name = name;
 }
 
 int Student::getAge() {
 	return age;
 }
 
-void Student::setAge(int a) {
-	if (a > 0) {
-		age = a;
+void Student::setAge(int age) {
+	if (age > 0) {
+		this->age = age;
 	}
 }
 
@@ -102,9 +77,9 @@ char Student::getGender() {
 	return gender;
 }
 
-void Student::setGender(char g) {
-	if (g == 'm' || g == 'f') {
-		gender = g;
+void Student::setGender(char gender) {
+	if (gender == 'm' || gender == 'f') {
+		this->gender = gender;
 	}
 }
 
@@ -112,8 +87,8 @@ bool Student::isAlive() {
 	return alive;
 }
 
-void Student::setAlive(bool a) {
-	alive = a;
+void Student::setAlive(bool alive) {
+	this->alive = alive;
 }
 
 int Student::getCountMark() {
@@ -124,13 +99,13 @@ int* Student::getMarks() {
 	return marks;
 }
 
-void Student::setMarks(int* m, int c) {
-	if (c > 0 && m != nullptr) {
-		if (marks != nullptr) {
-			delete[] marks;
+void Student::setMarks(int* marks, int count) {
+	if (count > 0 && marks != nullptr) {
+		if (this->marks != nullptr) {
+			delete[] this->marks;
 		}
-		marks = m;
-		count = c;
+		this->marks = marks;
+		this->count = count;
 	}
 }
 

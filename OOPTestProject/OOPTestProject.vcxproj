@@ -123,12 +123,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Employee.h" />
     <ClInclude Include="Group.h" />
+    <ClInclude Include="Human.h" />
     <ClInclude Include="Menager.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Group.cpp" />
+    <ClCompile Include="Human.cpp" />
     <ClCompile Include="main01.cpp" />
     <ClCompile Include="main02.cpp" />
     <ClCompile Include="main03.cpp" />
@@ -140,6 +144,8 @@
     <ClCompile Include="main09.cpp" />
     <ClCompile Include="main10.cpp" />
     <ClCompile Include="main11.cpp" />
+    <ClCompile Include="main12.cpp" />
+    <ClCompile Include="main13.cpp" />
     <ClCompile Include="Menager.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
